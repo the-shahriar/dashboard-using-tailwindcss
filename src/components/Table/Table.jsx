@@ -105,7 +105,7 @@ const Table = ({ pageTitle }) => {
   ];
 
   return (
-    <div className=" py-4 h-full" style={{ backgroundColor: "#F2F2F3" }}>
+    <div className="w-full py-4 h-full" style={{ backgroundColor: "#F2F2F3" }}>
       {/* Title */}
       <h3 className="px-6 text-black text-xl font-bold mb-4">{pageTitle}</h3>
       <hr className="border border-b-gray-200 mb-6" />
@@ -207,7 +207,7 @@ const Table = ({ pageTitle }) => {
       </div>
 
       {/* Tab Table */}
-      <div className="px-6 overflow-auto lg:hidden md:block">
+      <div className="px-6 overflow-auto hidden lg:hidden md:block">
         <div className="bg-white pt-6">
           <div className="justify-between pb-6 items-center w-full md:flex md:w-auto relative ml-6">
             <input
@@ -232,7 +232,7 @@ const Table = ({ pageTitle }) => {
                   Title
                   <i className="fa-solid fa-arrows-up-down ml-2"></i>
                 </th>
-                <th className="p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="py-3 pl-6 pr-3 text-sm font-semibold tracking-wide text-left">
                   Status
                 </th>
                 <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
@@ -290,64 +290,80 @@ const Table = ({ pageTitle }) => {
         </div>
       </div>
 
-      {/*  Responsive */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-        <div className="bg-white space-y-3 p-4 rounded-lg shadow">
-          <div className="flex items-center space-x-2 text-sm">
-            <div>
-              <a href="#4" className="text-blue-500 font-bold hover:underline">
-                #1000
-              </a>
-            </div>
-            <div className="text-gray-500">10/10/2021</div>
-            <div>
-              <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">
-                Delivered
-              </span>
-            </div>
+      {/*  Mobile Table */}
+      <div className="w-full px-6 overflow-auto lg:hidden md:hidden sm:block">
+        <div className="bg-white pt-6">
+          <div className="justify-between pb-6 items-center w-full relative ml-6">
+            <input
+              type="text"
+              placeholder="Search"
+              className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-11/12 focus:outline-none"
+              style={{ backgroundColor: "#F2F2F3" }}
+            />
+            <i className="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-300 "></i>
           </div>
-          <div className="text-sm text-gray-700">
-            Kring New Fit office chair, mesh + PU, black
-          </div>
-          <div className="text-sm font-medium text-black">$200.00</div>
-        </div>
-        <div className="bg-white space-y-3 p-4 rounded-lg shadow">
-          <div className="flex items-center space-x-2 text-sm">
-            <div>
-              <a href="#" className="text-blue-500 font-bold hover:underline">
-                #1001
-              </a>
-            </div>
-            <div className="text-gray-500">10/10/2021</div>
-            <div>
-              <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">
-                Shipped
-              </span>
-            </div>
-          </div>
-          <div className="text-sm text-gray-700">
-            Kring New Fit office chair, mesh + PU, black
-          </div>
-          <div className="text-sm font-medium text-black">$200.00</div>
-        </div>
-        <div className="bg-white space-y-3 p-4 rounded-lg shadow">
-          <div className="flex items-center space-x-2 text-sm">
-            <div>
-              <a href="#" className="text-blue-500 font-bold hover:underline">
-                #1002
-              </a>
-            </div>
-            <div className="text-gray-500">10/10/2021</div>
-            <div>
-              <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-200 rounded-lg bg-opacity-50">
-                Canceled
-              </span>
-            </div>
-          </div>
-          <div className="text-sm text-gray-700">
-            Kring New Fit office chair, mesh + PU, black
-          </div>
-          <div className="text-sm font-medium text-black">$200.00</div>
+          <table className="w-full">
+            <thead className="bg-red-50">
+              <tr>
+                <th className="px-6 py-3 text-sm font-semibold tracking-wide text-left mx-auto">
+                  <input type="checkbox" className="mt-2" />
+                </th>
+                <th className="w-36 p-3 text-sm font-semibold tracking-wide text-left">
+                  Date Updated
+                  <i className="fa-solid fa-arrow-down ml-2"></i>
+                </th>
+                <th className="p-3 text-sm font-semibold tracking-wide text-left">
+                  Status
+                </th>
+                <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
+                  Quantity
+                </th>
+                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
+                  Amount
+                  <i className="fa-solid fa-arrows-up-down ml-2"></i>
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {tableData.length > 0 &&
+                tableData.map((item) => (
+                  <tr key={item.id} className="bg-white">
+                    <td className="px-6 py-3 text-sm text-gray-700 whitespace-nowrap">
+                      <input type="checkbox" className="mt-2" />
+                    </td>
+                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      {item.date}
+                    </td>
+                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      {item.status === "Alright" && (
+                        <div className="flex items-center">
+                            <p className="hidden">{item.status}</p>
+                            <span className="bg-green-600 rounded-full w-1.5 h-1.5 ml-2"></span>
+                        </div>
+                      )}
+                      {item.status === "In Progress" && (
+                        <div className="flex items-center">
+                            <p className="hidden">{item.status}</p>
+                            <span className="bg-yellow-600 rounded-full w-1.5 h-1.5 ml-2"></span>
+                        </div> 
+                      )}
+                      {item.status === "Out of Stock" && (
+                        <div className="flex items-center">
+                            <p className="hidden">{item.status}</p>
+                            <span className="bg-red-600 rounded-full w-1.5 h-1.5 ml-2"></span>
+                        </div>
+                      )}
+                    </td>
+                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      {item.quantity}
+                    </td>
+                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                      ${item.total}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

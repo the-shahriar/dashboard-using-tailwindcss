@@ -12,7 +12,7 @@ const Dashboard = () => {
                 <div className='lg:w-1/5 md:w-1/12'>
                     <Sidebar />
                 </div>
-                <div className='lg:w-4/5 md:w-11/12'>
+                <div className='lg:w-4/5 md:w-11/12 w-full'>
                    <Table pageTitle={'Inventory'} />
                 </div>
            </div>

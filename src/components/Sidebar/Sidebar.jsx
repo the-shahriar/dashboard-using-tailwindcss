@@ -2,7 +2,7 @@ import React from 'react';
 
 const Sidebar = () => {
     return (
-      <aside className="h-full border border-r-gray-200" style={{backgroundColor: '#F2F2F3'}}>
+      <aside className="h-full border hidden lg:block md:block border-r-gray-200" style={{backgroundColor: '#F2F2F3'}}>
         <div className="pt-4 pr-3 lg:pl-7 md:pl-4">
           <ul className="space-y-2">
             <li>
