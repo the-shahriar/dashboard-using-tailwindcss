@@ -1,4 +1,5 @@
 import React from 'react';
+import BottomNavigation from '../../components/BottomNavigation/BottomNavigation';
 import Header from '../../components/Header/Header';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Table from '../../components/Table/Table';
@@ -16,6 +17,9 @@ const Dashboard = () => {
                    <Table pageTitle={'Inventory'} />
                 </div>
            </div>
+            <div className='lg:hidden md:hidden block'>
+                <BottomNavigation />
+            </div>
         </>
     );
 };

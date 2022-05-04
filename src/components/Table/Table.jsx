@@ -291,13 +291,13 @@ const Table = ({ pageTitle }) => {
       </div>
 
       {/*  Mobile Table */}
-      <div className="w-full px-6 overflow-auto lg:hidden md:hidden sm:block">
+      <div className="px-6 pb-24 lg:hidden md:hidden sm:block">
         <div className="bg-white pt-6">
           <div className="justify-between pb-6 items-center w-full relative ml-6">
             <input
               type="text"
               placeholder="Search"
-              className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-11/12 focus:outline-none"
+              className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-10/12 md:w-11/12 lg:w-11/12 focus:outline-none"
               style={{ backgroundColor: "#F2F2F3" }}
             />
             <i className="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-300 "></i>
@@ -305,12 +305,9 @@ const Table = ({ pageTitle }) => {
           <table className="w-full">
             <thead className="bg-red-50">
               <tr>
-                <th className="px-6 py-3 text-sm font-semibold tracking-wide text-left mx-auto">
-                  <input type="checkbox" className="mt-2" />
-                </th>
-                <th className="w-36 p-3 text-sm font-semibold tracking-wide text-left">
-                  Date Updated
-                  <i className="fa-solid fa-arrow-down ml-2"></i>
+                <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
+                  Title
+                  <i className="fa-solid fa-arrows-up-down ml-2"></i>
                 </th>
                 <th className="p-3 text-sm font-semibold tracking-wide text-left">
                   Status
@@ -318,7 +315,7 @@ const Table = ({ pageTitle }) => {
                 <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
                   Quantity
                 </th>
-                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="w-36 p-3 text-sm font-semibold tracking-wide text-left">
                   Amount
                   <i className="fa-solid fa-arrows-up-down ml-2"></i>
                 </th>
@@ -328,11 +325,8 @@ const Table = ({ pageTitle }) => {
               {tableData.length > 0 &&
                 tableData.map((item) => (
                   <tr key={item.id} className="bg-white">
-                    <td className="px-6 py-3 text-sm text-gray-700 whitespace-nowrap">
-                      <input type="checkbox" className="mt-2" />
-                    </td>
                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                      {item.date}
+                      {item.title}
                     </td>
                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
                       {item.status === "Alright" && (
