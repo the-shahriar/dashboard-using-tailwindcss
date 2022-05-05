@@ -120,7 +120,7 @@ const Table = ({ pageTitle }) => {
               className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-80 focus:outline-none"
               style={{ backgroundColor: "#F2F2F3" }}
             />
-            <i className="fa-solid fa-magnifying-glass absolute left-3 text-gray-300 "></i>
+            <i className="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 "></i>
           </div>
           <table className="w-full">
             <thead className="bg-red-50">
@@ -130,11 +130,11 @@ const Table = ({ pageTitle }) => {
                 </th>
                 <th className="w-36 p-3 text-sm font-semibold tracking-wide text-left">
                   Date Updated
-                  <i className="fa-solid fa-arrow-down ml-2"></i>
+                  <i className="fa-solid fa-arrow-down ml-1.5"></i>
                 </th>
                 <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
                   Title
-                  <i className="fa-solid fa-arrows-up-down ml-2"></i>
+                  <i className="fa-solid fa-arrows-up-down ml-1.5"></i>
                 </th>
                 <th className="p-3 text-sm font-semibold tracking-wide text-left">
                   Details
@@ -142,19 +142,19 @@ const Table = ({ pageTitle }) => {
                 <th className="p-3 text-sm font-semibold tracking-wide text-left">
                   Status
                 </th>
-                <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="p-3 text-sm font-semibold tracking-wide text-left">
                   Quantity
                 </th>
-                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="p-3 text-sm font-semibold tracking-wide text-left">
                   Unit Price
                 </th>
-                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="p-3 text-sm font-semibold tracking-wide text-right">
                   Amount
-                  <i className="fa-solid fa-arrows-up-down ml-2"></i>
+                  <i className="fa-solid fa-arrows-up-down ml-1.5"></i>
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100">
+            <tbody>
               {tableData.length > 0 &&
                 tableData.map((item) => (
                   <tr key={item.id} className="bg-white">
@@ -168,9 +168,17 @@ const Table = ({ pageTitle }) => {
                       {item.title}
                     </td>
                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                      {item.details}
+                      {
+                        item.details === ""  ? (
+                          <p>-</p>
+                        )
+                        :
+                        (
+                          <p>{item.details}</p>
+                        )
+                      }
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="tp-3 text-sm text-gray-700 whitespace-nowrap">
                       {item.status === "Alright" && (
                         <div className="flex justify-center items-center">
                             <p className="-ml-7">{item.status}</p>
@@ -190,19 +198,42 @@ const Table = ({ pageTitle }) => {
                         </div>
                       )}
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="text-right p-3 text-sm text-gray-700 whitespace-nowrap">
                       {item.quantity}
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="text-right p-3 text-sm text-gray-700 whitespace-nowrap">
                       ${item.price}
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="text-right p-3 text-sm text-gray-700 whitespace-nowrap">
                       ${item.total}
                     </td>
                   </tr>
                 ))}
             </tbody>
           </table>
+          <div className="flex justify-between items-center flex-wrap pt-8 pb-11">
+            <div className="ml-6">
+              <select className="w-56 px-1.5 py-1 border border-gray-300 text-gray-400">
+                <option selected value="10">10 Items per page</option>
+              </select>
+            </div>
+
+            <div className="flex flex-wrap justify-between items-center mr-3">
+              <div>
+                <select className="w-44 px-1.5 py-1 border border-gray-300 text-gray-400">
+                  <option selected value="10">Page 1 of 5</option>
+                </select>
+              </div>
+              <div className="ml-4">
+                    <button className="px-2.5 py-1 border border-gray-300 text-gray-400">
+                      <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                    <button className="ml-4 px-2.5 py-1 border border-gray-300 text-gray-400">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -216,7 +247,7 @@ const Table = ({ pageTitle }) => {
               className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-80 focus:outline-none"
               style={{ backgroundColor: "#F2F2F3" }}
             />
-            <i className="fa-solid fa-magnifying-glass absolute left-3 text-gray-300 "></i>
+            <i className="fa-solid fa-magnifying-glass absolute left-3 text-gray-400 "></i>
           </div>
           <table className="w-full">
             <thead className="bg-red-50">
@@ -226,25 +257,25 @@ const Table = ({ pageTitle }) => {
                 </th>
                 <th className="w-36 p-3 text-sm font-semibold tracking-wide text-left">
                   Date Updated
-                  <i className="fa-solid fa-arrow-down ml-2"></i>
+                  <i className="fa-solid fa-arrow-down ml-1.5"></i>
                 </th>
                 <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
                   Title
-                  <i className="fa-solid fa-arrows-up-down ml-2"></i>
+                  <i className="fa-solid fa-arrows-up-down ml-1.5"></i>
                 </th>
-                <th className="py-3 pl-6 pr-3 text-sm font-semibold tracking-wide text-left">
+                <th className="py-3 pl-7 pr-3 text-sm font-semibold tracking-wide text-left">
                   Status
                 </th>
-                <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="p-3 text-sm font-semibold tracking-wide text-right">
                   Quantity
                 </th>
-                <th className="w-32 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="p-3 text-sm font-semibold tracking-wide text-right">
                   Amount
-                  <i className="fa-solid fa-arrows-up-down ml-2"></i>
+                  <i className="fa-solid fa-arrows-up-down ml-1.5"></i>
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100">
+            <tbody>
               {tableData.length > 0 &&
                 tableData.map((item) => (
                   <tr key={item.id} className="bg-white">
@@ -277,30 +308,53 @@ const Table = ({ pageTitle }) => {
                         </div>
                       )}
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="text-right p-3 text-sm text-gray-700 whitespace-nowrap">
                       {item.quantity}
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="text-right p-3 text-sm text-gray-700 whitespace-nowrap">
                       ${item.total}
                     </td>
                   </tr>
                 ))}
             </tbody>
           </table>
+          <div className="flex justify-between items-center flex-wrap pt-8 pb-11">
+            <div className="ml-6">
+              <select className="w-56 px-1.5 py-1 border border-gray-300 text-gray-400">
+                <option selected value="10">10 Items per page</option>
+              </select>
+            </div>
+
+            <div className="flex flex-wrap justify-between items-center mr-3">
+              <div>
+                <select className="w-44 px-1.5 py-1 border border-gray-300 text-gray-400">
+                  <option selected value="10">Page 1 of 5</option>
+                </select>
+              </div>
+              <div className="ml-4">
+                    <button className="px-2.5 py-1 border border-gray-300 text-gray-400">
+                      <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                    <button className="ml-4 px-2.5 py-1 border border-gray-300 text-gray-400">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/*  Mobile Table */}
       <div className="px-6 pb-24 lg:hidden md:hidden sm:block">
         <div className="bg-white pt-6">
-          <div className="justify-between pb-6 items-center w-full relative ml-6">
+          <div className="justify-between pb-6 items-center w-full relative ml-4">
             <input
               type="text"
               placeholder="Search"
-              className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-10/12 md:w-11/12 lg:w-11/12 focus:outline-none"
+              className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-11/12 focus:outline-none"
               style={{ backgroundColor: "#F2F2F3" }}
             />
-            <i className="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-300 "></i>
+            <i className="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400 "></i>
           </div>
           <table className="w-full">
             <thead className="bg-red-50">
@@ -312,19 +366,19 @@ const Table = ({ pageTitle }) => {
                 <th className="p-3 text-sm font-semibold tracking-wide text-left">
                   Status
                 </th>
-                <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="p-3 text-sm font-semibold tracking-wide text-right">
                   Quantity
                 </th>
-                <th className="w-36 p-3 text-sm font-semibold tracking-wide text-left">
+                <th className="p-3 text-sm font-semibold tracking-wide text-right">
                   Amount
                   <i className="fa-solid fa-arrows-up-down ml-2"></i>
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-100">
+            <tbody>
               {tableData.length > 0 &&
                 tableData.map((item) => (
-                  <tr key={item.id} className="bg-white">
+                  <tr key={item.id} className="bg-white space-y-3">
                     <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
                       {item.title}
                     </td>
@@ -348,16 +402,33 @@ const Table = ({ pageTitle }) => {
                         </div>
                       )}
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="text-right p-3 text-sm text-gray-700 whitespace-nowrap">
                       {item.quantity}
                     </td>
-                    <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
+                    <td className="text-right p-3 text-sm text-gray-700 whitespace-nowrap">
                       ${item.total}
                     </td>
                   </tr>
                 ))}
             </tbody>
           </table>
+          <div className="flex justify-between items-center flex-wrap pt-8 pb-11">
+            <div className="flex flex-wrap justify-between items-center ml-3">
+              <div>
+                <select className="w-44 px-1.5 py-1 border border-gray-300 text-gray-400">
+                  <option selected value="10">Page 1 of 5</option>
+                </select>
+              </div>
+              <div className="ml-4">
+                    <button className="px-2.5 py-1 border border-gray-300 text-gray-400">
+                      <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                    <button className="ml-4 px-2.5 py-1 border border-gray-300 text-gray-400">
+                      <i class="fa-solid fa-angle-right"></i>
+                    </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

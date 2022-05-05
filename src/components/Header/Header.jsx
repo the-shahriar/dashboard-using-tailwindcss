@@ -16,9 +16,10 @@ const Header = () => {
             </a>
           </div>
           {/*  Search Box */}
-          <div className="justify-between items-center w-full md:flex md:w-auto relative lg:ml-10 hidden lg:block md:ml-3">
+          <div className="justify-between items-center w-full md:flex md:w-auto relative lg:ml-10 hidden lg:block md:ml-3
+          ">
             <input type="text" placeholder="Search" className="border-solid px-9 py-2 rounded-md focus:border-blue-300 w-80 focus:outline-none" style={{backgroundColor: '#F2F2F3'}}/>
-            <i className="fa-solid fa-magnifying-glass absolute left-3 lg:top-3 md:top-4 text-gray-300 "></i>
+            <i className="fa-solid fa-magnifying-glass absolute left-3 lg:top-3 md:top-4 text-gray-400 "></i>
           </div>
         </div>
     
